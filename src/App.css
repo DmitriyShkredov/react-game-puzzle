@@ -1,42 +1,39 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.game {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  border: 2px solid #fff;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.game-item {
+  position: absolute;
+  width: 25%;
+  height: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #fff;
+  background-color: #bb2020b0;
+  border-radius: 5px;
+  font-size: 30px;
+  cursor: auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.game-item.success {
+  background-color: #41ca26cc;
 }
 
-.card {
-  padding: 2em;
+.game-item.empty {
+  background-color: #ffffff00;
+  border: 0;
+  color: #00000000;
 }
 
-.read-the-docs {
-  color: #888;
+.reset-button {
+  margin-top: 24px;
+  padding: 12px 24px;
+  font-size: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  text-transform: uppercase;
 }
