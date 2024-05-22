@@ -1,10 +1,10 @@
 import "./App.css";
 import { useState } from "react";
 import classnames from "classnames";
-import { getEmptyXY, canMoveItem, genRandomwArr, correctArr } from "./util";
+import { getEmptyXY, canMoveItem, genRandomArr, correctArr } from "./util";
 
 function App() {
-  const [state, setState] = useState(genRandomwArr());
+  const [state, setState] = useState(genRandomArr());
 
   const moveItem = (x: number, y: number, item: number) => {
     const [emptyX, emptyY] = getEmptyXY(state, 16);
@@ -40,10 +40,7 @@ function App() {
           })
         )}
       </div>
-      <button
-        className="reset-button"
-        onClick={() => setState(genRandomwArr())}
-      >
+      <button className="reset-button" onClick={() => setState(genRandomArr())}>
         reset
       </button>
     </>
