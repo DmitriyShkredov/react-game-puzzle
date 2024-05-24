@@ -3,6 +3,7 @@
   width: 320px;
   height: 320px;
   border: 2px solid #fff;
+  border-radius: 5px;
 }
 
 .game-item {
@@ -32,8 +33,11 @@
 .reset-button {
   margin-top: 24px;
   padding: 12px 24px;
-  font-size: 20px;
-  background-color: #fff;
+  background-color: transparent;
+  border: 2px solid #fff;
   border-radius: 5px;
+  font-size: 20px;
+  color: #fff;
   text-transform: uppercase;
+  cursor: pointer;
 }
