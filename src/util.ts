@@ -26,29 +26,27 @@ export const canMoveItem = (
   return false;
 };
 
-export const genRandomArr = () => {
-  const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
-  let m = arr.length;
-  let t;
-  let i;
-  while (m) {
-    i = Math.floor(Math.random() * m--);
-    t = arr[m];
-    arr[m] = arr[i];
-    arr[i] = t;
-  }
-
-  return [
-    arr.slice(0, 4),
-    arr.slice(4, 8),
-    arr.slice(8, 12),
-    arr.slice(12, 16),
-  ];
-};
-
 export const correctArr = [
   [1, 2, 3, 4],
   [5, 6, 7, 8],
   [9, 10, 11, 12],
   [13, 14, 15, 16],
 ];
+
+export const genRandomArr = (): Array<number[]> => {
+  const array = JSON.parse(JSON.stringify(correctArr));
+  const mixCount = 200;
+  for (let i = 0; i < mixCount; i++) {
+    const [x, y] = getEmptyXY(array, 16);
+    const dir = Math.ceil(Math.random() * 4);
+    let newX = x;
+    let newY = y;
+    if (dir === 1 && y > 0) newY = y - 1;
+    else if (dir === 2 && y < 3) newY = y + 1;
+    else if (dir === 3 && x > 0) newX = x - 1;
+    else if (dir === 4 && x < 3) newX = x + 1;
+    array[y][x] = array[newY][newX];
+    array[newY][newX] = 16;
+  }
+  return array;
+};
