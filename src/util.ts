@@ -2,17 +2,12 @@ export const getEmptyXY = (
   array: Array<number[]>,
   number: number
 ): Array<number> => {
-  let emptyX = 1;
-  let emptyY = 1;
-  array.forEach((line, y) => {
-    line.forEach((item, x) => {
-      if (item === number) {
-        emptyX = x;
-        emptyY = y;
-      }
-    });
-  });
-  return [emptyX, emptyY];
+  for (let y = 0; y < array.length; y++) {
+    for (let x = 0; x < array[y].length; x++) {
+      if (number === array[y][x]) return [x, y];
+    }
+  }
+  return [0, 0];
 };
 
 export const canMoveItem = (
